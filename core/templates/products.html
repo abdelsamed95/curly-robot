@@ -9,7 +9,7 @@
   }
 
  .card {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.4);
   transition: 0.3s;
   
  }
@@ -94,6 +94,10 @@ padding: 1rem;
         .filter-panel strong {
             width: 120px;
         }
+        .abl{
+          text-decoration: none;
+          color: inherit;  
+        }
 </style>
 
 
@@ -104,7 +108,7 @@ padding: 1rem;
          <div class="container products">
         
           <ul class="filter-panel">
-            <li data-filter="all"> All </li>
+            <li data-filter="all"> tous </li>
             {% for item in object_list %}
             <li data-filter="{{item.get_category_display}}"> {{item.get_category_display}}</li>
             {% endfor %}
@@ -129,8 +133,10 @@ padding: 1rem;
                   <p>{{item.get_category_display}}</p>
                   <div class="d-flex  justify-content-between align-items-center">
                     
-                      <button class="btn"  href="{{item.get_absolute_url}}" type="button" >
-                        <span>Détails</span>
+                      <button class="btn"  type="button" >
+                      <a class="abl"href="{{item.get_absolute_url}}" >
+                        <span> Détails </span>
+                      </a>
                       </button>
                    
                     <small class="text-muted"> 
@@ -149,7 +155,7 @@ padding: 1rem;
           </section>
      
           <script>
-const options = { /* check next step for available options */ };
+const options = { };
 
 const filterizr = new Filterizr('.filter-container', options);
           </script> 
