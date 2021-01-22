@@ -1,0 +1,138 @@
+{% extends "index.html" %} {% load static %} {% block content %}
+
+<link rel="stylesheet" href="{% static 'magnific-popup.css' %}"> 
+<style>
+
+  main{
+     padding-top:1rem;
+  }
+
+  img {
+    pointer-events: none;
+}
+.zoom {
+
+  transition: transform .2s;
+
+}
+
+.zoom:hover {
+  transform: scale(1.2); 
+}
+
+.carousel-inner .carousel-item:hover{
+  cursor:pointer;
+  filter: brightness(1.05);
+  transform: scale(1.1); 
+  transition: transform .2s;
+}
+
+.carousel-indicators {
+  position: initial;
+  right: initial;
+  bottom: initial;
+  left: initial;
+  z-index: initial;
+  display: initial;
+  -ms-flex-pack: initial;
+  justify-content: initial;
+  padding-left: initial;
+  margin-right: initial;
+  margin-left: initial;
+  list-style: initial; 
+}
+.carousel-indicators li {
+  width: auto;
+  height: auto;
+  text-indent: 0;
+  border: none;
+}
+.carousel-indicators li.active {
+  border: 1px solid #aaaaaa;
+}
+
+</style>
+
+<main role="main">
+
+
+<div class="container marketing ">
+        <div id="carousel" class="carousel slide carousel-fade" data-touch="true" data-ride="carousel">
+          <div class="row">
+            <div class="col-sm-2 d-none d-md-block">
+              <ol class="carousel-indicators list-group ">
+                  {% for p in photos %}
+                  <li data-target="#carousel" data-slide-to='{{ forloop.counter0 }}' class="{% if forloop.counter0 == 0 %} active {% endif %} list-group-item p-1 mb-1"><img src="{{p.images.url}}" alt="" class="img-fluid zoom" /></li>
+                  {% endfor %}
+                </ol>
+              </div>
+              <div class="col-md-10">
+                <div class="carousel-inner"> 
+                 
+              {% for p in photos %}
+              
+              <div class="{% if forloop.counter0 == 0 %}  active {% endif %} carousel-item " href="{{p.images.url}}" data-interval="50000">
+                
+                <img src="{{p.images.url}}" alt="product image" class="img-fluid"/>  
+              
+              </div>
+              {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+
+
+
+                                                    
+<div class="container marketing mt-5">
+    
+  <div class="row">
+    <div class="col-lg-6">
+    
+
+      <h2>{{object.description}}</h2>
+      <p>{{object.price}}</p>
+      <p>
+        <a class="btn btn-secondary" href="#" role="button"
+          >{{object.discount_price}} &raquo;</a
+        >
+      </p>
+    
+    </div>
+  
+  </div>
+
+ 
+<hr>
+
+
+
+
+<script src="{% static 'jquery.magnific-popup.js' %}"></script> 
+
+<script>
+$('.carousel-inner').magnificPopup({
+  delegate: 'div',
+  type: 'image',
+   gallery:{enabled:true,}, 
+  zoom: {
+    enabled: true,}
+});
+</script>
+
+</main>
+
+
+
+{% endblock content %}

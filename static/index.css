@@ -1,0 +1,39 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+    font-family: "Libre Baskerville";
+
+}
+
+
+
+@media screen and (max-width: 600px) {
+
+    p,
+    span,
+    .btn {
+
+        font-size: 2vw;
+    }
+
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+
+        font-size: 5vw;
+    }
+
+    a {
+        font-size: 4vw;
+    }
+
+}

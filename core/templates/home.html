@@ -1,0 +1,157 @@
+{% extends 'index.html' %} {% load static %}  {% block content %}
+
+<style>
+
+  img {
+    pointer-events: none;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 36rem;
+}
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 36rem;
+}
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 5px;
+}
+
+.row {margin: 0 5px;
+padding: 1vw;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .carousel-item {
+  height:16rem;
+}
+.carousel-item > img {
+
+  height: 16rem;
+}
+
+
+}
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #444;
+  color: white;
+}
+
+
+
+</style>
+<main role="main">
+
+<div id="Carousel"  class="carousel slide carousel-fade" data-touch="true" data-ride="carousel">
+  <ol class="carousel-indicators">
+  {% for item in home %}
+    <li data-target="#Carousel"  data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter0 == 0 %} active {% endif %}"> </li>
+    {% endfor %}
+  </ol>
+  <div class="carousel-inner ">
+  {% for item in home %}
+
+    <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}" data-interval="4000">
+      <img src="{{item.slider_image.url}}" class="d-block w-100"  alt="...">
+     
+    </div>
+    {% endfor %}
+  </div>
+  <a
+    class="carousel-control-prev"
+    href="#Carousel"
+    role="button"
+    data-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a
+    class="carousel-control-next"
+    href="#Carousel"
+    role="button"
+    data-slide="next"
+  >
+ 
+  <span class="carousel-control-next-icon" aria-hidden="true"> </span>
+  <span class="sr-only">Next</span>
+  
+  </a>
+</div>
+
+<hr>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <p><i class="fa fa-user"></i></p> <!-- to svg -->
+      <h3>11+</h3>
+      <p>Partners</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <p><i class="fa fa-check"></i></p> <!-- to svg -->
+      <h3>55+</h3>
+      <p>Projects</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <p><i class="fa fa-smile-o"></i></p> <!-- to svg -->
+      <h3>100+</h3>
+      <p>Happy Clients</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <p><i class="fa fa-coffee"></i></p>  <!-- to svg -->
+      <h3>100+</h3>
+      <p>Meetings</p>
+    </div>
+  </div>
+</div>
+<hr>
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+      <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <h1 ">Punny headline</h1>
+        <p >And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple's marketing pages.</p>
+        <a class="btn btn-outline-secondary" href="#">Coming soon</a>
+      </div>
+    </div>
+    <hr>
+</main>
+
+
+{% endblock content %}
