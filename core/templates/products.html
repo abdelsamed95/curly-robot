@@ -4,7 +4,7 @@
 
  <style>
   
-  main{
+  main {
       padding-top:1rem;
   }
 
@@ -31,7 +31,8 @@ padding: 1rem;
   filter: brightness(1.15) ;
 }
 
-.btn{
+.btn,
+.btn a{
   border-radius: 4px;
   background-color: #f4511e;
   border: none;
@@ -94,24 +95,22 @@ padding: 1rem;
         .filter-panel strong {
             width: 120px;
         }
-        .abl{
-          text-decoration: none;
-          color: inherit;  
-        }
+
 </style>
 
 
-<main role="main">
+<main id="main" role="main">
       
       <section class="product-area">
 
          <div class="container products">
         
           <ul class="filter-panel">
-            <li data-filter="all"> tous </li>
-            {% for item in object_list %}
-            <li data-filter="{{item.get_category_display}}"> {{item.get_category_display}}</li>
-            {% endfor %}
+            <li data-filter="all"> Tous </li>
+            <li data-filter="Salon"> Salon</li>
+            <li data-filter="Cuisine">Cuisine</li>
+            <li data-filter="Chambre">Chambre</li>
+            <li data-filter="Autre">Autres</li>
         </ul>
   
 
@@ -128,17 +127,19 @@ padding: 1rem;
               </a>
             </div>
                 <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p>{{item.get_color_display}}</p>
-                  <p>{{item.get_category_display}}</p>
+                  <p class="card-text">{{item.title}}</p>
+                  <p class="card-text">{{item.get_product_category_display}}</p>
+                  <p class="card-text">{{item.get_inventory_display}}</p>
+                  <p class="card-text">{{item.get_color_display}}</p>
+                  <p class="card-text">{{item.get_category_display}}</p>
                   <div class="d-flex  justify-content-between align-items-center">
-                    
+                    <a  href="{{item.get_absolute_url}}" >
                       <button class="btn"  type="button" >
-                      <a class="abl"href="{{item.get_absolute_url}}" >
-                        <span> Détails </span>
-                      </a>
+                    
+                        <span>Détails</span>
+                      
                       </button>
-                   
+                    </a>
                     <small class="text-muted"> 
                       {%if item.discount_price%} {{item.discount_price}} {% else %} {{item.price}} {% endif %} 
                       
@@ -160,6 +161,6 @@ const options = { };
 const filterizr = new Filterizr('.filter-container', options);
           </script> 
    </main>
-   <hr>
+  
    
 {% endblock content %}

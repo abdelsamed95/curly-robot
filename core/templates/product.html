@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{% static 'magnific-popup.css' %}"> 
 <style>
 
-  main{
+  main {
      padding-top:1rem;
   }
 
@@ -11,13 +11,12 @@
     pointer-events: none;
 }
 .zoom {
-
-  transition: transform .2s;
-
+  
+  transition: transform .3s ease-in-out;
 }
 
 .zoom:hover {
-  transform: scale(1.2); 
+  transform: scale(1.1); 
 }
 
 .carousel-inner .carousel-item:hover{
@@ -25,6 +24,11 @@
   filter: brightness(1.05);
   transform: scale(1.1); 
   transition: transform .2s;
+}
+
+.carousel-inner .carousel-item img{
+  max-height: 80vh;
+  width:auto;
 }
 
 .carousel-indicators {
@@ -51,18 +55,112 @@
   border: 1px solid #aaaaaa;
 }
 
+
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600|Open+Sans');
+
+.informations a {
+  text-decoration: none;
+  margin: 1rem 0;
+  font-weight: 600; 
+  text-transform: uppercase;
+  font-size: 0.8125rem;
+  letter-spacing: 1px;
+}
+
+.informations p {
+  font-size: 0.9rem;
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+.informations {
+  max-width: 95%;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 1rem;
+  
+}
+
+.informations h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #333;
+  font-size: 1.825rem;
+  margin: 1.3rem 0;
+}
+
+.service a {
+  color: #5b7abb;
+  display: block;
+}
+
+.service h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #56ceba;
+  font-size: 1.3rem;
+  margin: 1rem 0 0.6rem;
+}
+
+.service {
+  background: rgb(254, 254, 254);
+  margin-top: 1rem;
+  padding:10px;
+  border-radius: 4px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid #e7e7e7;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.service:hover {
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+.service1 h4,
+.service1 .cta {
+  color: #caa342;
+}
+
+.service1:hover {
+  border: 2px solid #caa342;
+}
+
+
+.service2 h4,
+.service2 .cta {
+  color: #ca4242;
+}
+
+.service2:hover {
+  border: 2px solid #ca4242;
+}
+
+.service > * {
+  flex: 1 1 100%;
+}
+
 </style>
 
-<main role="main">
+<main id="main" role="main">
 
 
 <div class="container marketing ">
+  <div  class="informations">
+    <div class="service service1">
         <div id="carousel" class="carousel slide carousel-fade" data-touch="true" data-ride="carousel">
           <div class="row">
             <div class="col-sm-2 d-none d-md-block">
               <ol class="carousel-indicators list-group ">
                   {% for p in photos %}
-                  <li data-target="#carousel" data-slide-to='{{ forloop.counter0 }}' class="{% if forloop.counter0 == 0 %} active {% endif %} list-group-item p-1 mb-1"><img src="{{p.images.url}}" alt="" class="img-fluid zoom" /></li>
+                  <li data-target="#carousel" data-slide-to='{{ forloop.counter0 }}' class="{% if forloop.counter0 == 0 %} active {% endif %} list-group-item p-0 mb-1  zoom"><img src="{{p.images.url}}" alt="" class="img-fluid"/></li>
                   {% endfor %}
                 </ol>
               </div>
@@ -79,42 +177,42 @@
               {% endfor %}
             </div>
             <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
             <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
           </div>
         </div>
       </div>
     </div> 
-
-
+  </div>
+</div> 
 
 
                                                     
-<div class="container marketing mt-5">
+<div class="container marketing mt-1">
     
-  <div class="row">
-    <div class="col-lg-6">
-    
+  <div class="row ">
+   
+        
+          <div  class="informations">
+            <div class="service service2">
 
-      <h2>{{object.description}}</h2>
-      <p>{{object.price}}</p>
+      <h4>le produit</h4>
+      <p><strong style="font-weight: 600;font-size: 16px;">La description : </strong>{{object.description}}</p>
+      
       <p>
-        <a class="btn btn-secondary" href="#" role="button"
-          >{{object.discount_price}} &raquo;</a
-        >
+        <strong style="font-weight: 600; font-size: 16px;">le prix : </strong>{{object.discount_price}} <strong style="font-weight: 600;font-size: 16px;">DA</strong>
       </p>
     
-    </div>
-  
+   
+      </div>
+      </div>
   </div>
-
+</div>
  
-<hr>
+
 
 
 

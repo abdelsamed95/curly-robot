@@ -13,13 +13,14 @@
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
-  height:44vw;
+  height:91vh;
 }
 .carousel-item > img {
   position: absolute;
   top: 0;
   left: 0;
-  min-width: 100%;
+  width: auto;
+  min-width: 80%;
   height:100%;
 }
   
@@ -40,6 +41,22 @@ padding: 1vw;}
   clear: both;
 }
 
+.carousel-control-prev,
+.carousel-control-next{
+  transition: background-color .5s ease-in-out;
+}
+
+
+.carousel-control-prev:hover {
+
+  
+  background-color: rgba(30, 30, 30, 0.1);
+
+
+}
+.carousel-control-next:hover {
+  background-color: rgb(30, 30,30,0.1);
+}
 
 /* Responsive columns */
 @media screen and (max-width: 600px) {
@@ -49,11 +66,11 @@ padding: 1vw;}
     margin-bottom: 10px;
   }
   .carousel-item {
-  height:16rem;
+  height:35vh;
 }
 .carousel-item > img {
 
-  height: 16rem;
+  height: 100%;
 }
 
 
@@ -63,14 +80,14 @@ padding: 1vw;}
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: center;
-  background-color: #444;
+  background-color: rgb(213, 133, 48);
   color: white;
 }
 
 
 
 </style>
-<main role="main">
+<main id= "main" role="main">
 
 <div id="Carousel"  class="carousel slide carousel-fade" data-touch="true" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -113,23 +130,23 @@ padding: 1vw;}
 <div class="row">
   <div class="column">
     <div class="card">
-      <p><i class="fa fa-user"></i></p> <!-- to svg -->
+      <p><i class="fa fa-handshake fa-2x"></i></p> <!-- to svg -->
       <h3>11+</h3>
-      <p>Partners</p>
+      <p>Partenaires</p>
     </div>
   </div>
 
   <div class="column">
     <div class="card">
-      <p><i class="fa fa-check"></i></p> <!-- to svg -->
+      <p><i class="fa fa-check fa-2x"></i></p> <!-- to svg -->
       <h3>55+</h3>
-      <p>Projects</p>
+      <p>Projets</p>
     </div>
   </div>
 
   <div class="column">
     <div class="card">
-      <p><i class="fa fa-smile-o"></i></p> <!-- to svg -->
+      <p><i class="fa fa-smile fa-2x"></i></p> <!-- to svg -->
       <h3>100+</h3>
       <p>Happy Clients</p>
     </div>
@@ -137,7 +154,7 @@ padding: 1vw;}
 
   <div class="column">
     <div class="card">
-      <p><i class="fa fa-coffee"></i></p>  <!-- to svg -->
+      <p><i class="fa fa-coffee fa-2x"></i></p>  <!-- to svg -->
       <h3>100+</h3>
       <p>Meetings</p>
     </div>
@@ -151,7 +168,7 @@ padding: 1vw;}
         <a class="btn btn-outline-secondary" href="#">Coming soon</a>
       </div>
     </div>
-    <hr>
+   
 </main>
 
 

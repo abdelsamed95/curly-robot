@@ -11,12 +11,21 @@ CATEGORY_CHOICES = (('S', 'Salon'),
 COLOR_CHOICES = (('P', 'primary'),
                  ('S', 'secondary'),
                  ('D', 'danger'))
+PRODUCT_CATEGORY = (('MT', 'Meuble TV'),
+                    ('TM', 'Table à manger'),
+                    ('T', 'Table'),
+                    ('RA', 'Rangement'),
+                    ('C', 'Cuisine'),
+                    ('BU', 'Bureau'))
+
+INVENTORY_STATES = (('P', 'Disponible'),
+                    ('D', 'Indisponible'))
 
 
 class Home(models.Model):
     title = models.CharField(max_length=100)
     slider_image = models.ImageField(
-        blank=True, upload_to='static/images/')
+        blank=True, upload_to='home/images/')
 
     def __str__(self):
         return self.title
@@ -31,6 +40,10 @@ class Item(models.Model):
     discount_price = models.FloatField(blank=True, null=True)
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
     color = models.CharField(choices=COLOR_CHOICES, max_length=3, default="P")
+    inventory = models.CharField(
+        choices=INVENTORY_STATES, max_length=2, default="P")
+    product_category = models.CharField(
+        choices=PRODUCT_CATEGORY, max_length=3, default="RA")
     slug = models.SlugField()
     description = models.TextField()
     image = models.FileField(blank=True)
@@ -52,6 +65,7 @@ class ItemImage(models.Model):
     item = models.ForeignKey(Item, default=None, on_delete=models.CASCADE)
     images = models.FileField(upload_to='images/')
     number = models.IntegerField(default=1)
+    caption = models.CharField(blank=True, max_length=30)
 
     def __str__(self):
         return self.item.title

@@ -4,13 +4,18 @@
 
 .navbar{
  
- background-color:rgb(245, 245, 245);
+  background-color:rgb(245, 235, 255);
  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
 }
 
 .navbar-nav a {
-  
-  border-bottom: 2px solid transparent;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  font-size: 14px;
+  border-bottom: 3px solid transparent;
 }
 
 .navbar a.navbar-brand {
@@ -18,10 +23,17 @@
   font-weight: bold;
    color: #262626;
 }
- 
+
+.navbar-nav ul li {
+  opacity: 0.4;
+  transition: all 0.5s ease;
+}
+
+
 .navbar-nav a.nav-link:hover {
-  border-bottom: 2px solid red;
-  transition: 0.5s;
+  border-bottom: 3px solid red;
+  opacity: 0.7;
+  transition: 0.5s ease-in-out;
 }
 
 
@@ -46,13 +58,13 @@
 
  @media screen and (max-width: 767px) {
 .nav-item{
-  border-bottom: 2px solid rgb(65, 65, 65);
+  border-bottom: 2px solid transparent;
   text-align: center;
-  margin-right:30px;
-  margin-left: 30px;
+  padding-top: 10px;
 }
  .navbar-nav{
   margin-bottom: 20px;
+  padding:30px ;
   
  }
 
@@ -90,9 +102,13 @@
   transform: rotate(45deg) translate(-6px, -6px);
 }
 
+
+
+
+
 </style>
 
- <header class="container-fluid p-0 sticky-top ">  
+ <header id="header" class="container-fluid p-0 sticky-top ">  
 
   <nav class="navbar navbar-expand-md navbar-light" aria-label="main navigation">
     <div class="container">
@@ -113,7 +129,7 @@
           <a class="nav-link " href={% url 'core:Home' %}>accueil</a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link " href={% url 'core:products' %}>products</a>
+          <a class="nav-link " href={% url 'core:products' %}>produits</a>
         </li>
         <li class="nav-item ">
           <a class="nav-link " href={% url 'core:contact' %}>contact</a>
@@ -143,6 +159,10 @@ for (var i = 0, l = els.length; i < l; i++) {
         }
     }
 }
+
+gsap.from(".navbar-brand",{opacity:0,durtion:1,delay:0.5,y:-10})
+
+
 </script>
 
 </header>
