@@ -11,6 +11,7 @@ CATEGORY_CHOICES = (('S', 'Salon'),
 COLOR_CHOICES = (('P', 'primary'),
                  ('S', 'secondary'),
                  ('D', 'danger'))
+
 PRODUCT_CATEGORY = (('MT', 'Meuble TV'),
                     ('TM', 'Table à manger'),
                     ('T', 'Table'),
