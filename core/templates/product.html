@@ -9,7 +9,7 @@
 
   img {
     pointer-events: none;
-  
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.4);
 }
 .zoom {
   
@@ -57,6 +57,7 @@
 @media screen and (min-width: 1200px) {
 .carousel-item img{
   max-height: 80vh;
+  height:80vh;
   width:auto;
 }
 }
@@ -95,7 +96,7 @@
   
 }
 .carousel-indicators .img-ind.active {
-  background-color: white;
+  background-color: rgb(250,250,250);
 }
 
 .mobilep{
@@ -111,9 +112,6 @@
   background-color:rgba(0, 0, 0, 0.5);
   border-radius: 25%;
 }
-
-
-@import url('https://fonts.googleapis.com/css?family=Montserrat:600|Open+Sans');
 
 .informations a {
   text-decoration: none;
@@ -136,7 +134,6 @@
   width: 95%;
   text-align: center;
   padding-bottom: 1rem;
- 
   
 }
 
@@ -163,7 +160,6 @@
 
 .service {
   background: rgb(250, 250, 250);
-  margin-top: 1rem;
   padding:10px;
   border-radius: 4px;
   text-align: center;
@@ -191,7 +187,6 @@
   border: 2px solid #089168;
 }
 
-
 .service2 h4,
 .service2 .cta {
   color: #ca4242;
@@ -204,14 +199,23 @@
 .service > * {
   flex: 1 1 100%;
 }
-
-
+.breadcrumb{
+  background-color:white;
+  
+}
 </style>
 
 <main id="main" role="main">
 
+  <div class="container marketing ">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href={% url 'core:products' %}>Produits</a></li>
+  <li class="breadcrumb-item active"  aria-current="page">{{object.title}}</li>
+  </ol>
+</nav>
 
-<div class="container marketing ">
+
   <div class="row">
   <div  class="informations">
     <div class="service service1">

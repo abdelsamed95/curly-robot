@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600|Open+Sans');
+
 p,
-a {
+a,
+li {
 
     font-family: "Libre Baskerville";
     font-weight: 400;
@@ -11,12 +14,13 @@ a {
 
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 767px) {
 
 
     p,
     a,
-    span {
+    span,
+    li {
 
         font-weight: 500;
         font-size: 0.80rem;
