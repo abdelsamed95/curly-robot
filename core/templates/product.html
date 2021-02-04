@@ -21,13 +21,14 @@
 }
 
 .carousel-item:hover{
-  cursor:pointer;
   filter: brightness(1.05);
   transition: transform .2s ease;
+  cursor:pointer;
 }
  
 .carousel-item{
-  height: 100%; 
+  height: 100%;
+ 
 }
 
 
@@ -96,7 +97,7 @@
   
 }
 .carousel-indicators .img-ind.active {
-  background-color: rgb(250,250,250);
+  background-color:white;
 }
 
 .mobilep{
@@ -159,22 +160,25 @@
 }
 
 .service {
-  background: rgb(250, 250, 250);
+  background: white;
+  -webkit-tap-highlight-color: transparent;
   padding:10px;
   border-radius: 4px;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
-  border: 2px solid #e7e7e7;
+  border: 3px solid #e7e7e7;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   transition: all 0.3s ease;
+ 
 }
 
 .service:hover {
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
   -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+ 
 }
 
 
@@ -184,7 +188,7 @@
 }
 
 .service1:hover {
-  border: 2px solid #089168;
+  border: 3px solid rgb(0,128, 0);
 }
 
 .service2 h4,
@@ -193,7 +197,7 @@
 }
 
 .service2:hover {
-  border: 2px solid #ca4242;
+  border: 3px solid #ca4242;
 }
 
 .service > * {
@@ -206,16 +210,17 @@
 </style>
 
 <main id="main" role="main">
+  
 
-  <div class="container marketing ">
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-  <li class="breadcrumb-item"><a href={% url 'core:products' %}>Produits</a></li>
-  <li class="breadcrumb-item active"  aria-current="page">{{object.title}}</li>
-  </ol>
-</nav>
-
-
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href={% url 'core:products' %}>Produits</a></li>
+      <li class="breadcrumb-item active"  aria-current="page">{{object.title}}</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="container-fluid marketing ">
   <div class="row">
   <div  class="informations">
     <div class="service service1">
@@ -229,12 +234,12 @@
                   {% endfor %}
                 </ol>
               </div>
-
-              <div class="carousel-inner col-md-10 col-sm-12">
+           <div class="carousel-inner col-md-10 col-sm-12">
+            
                 
               {% for p in photos %}
               
-              <div class="{% if forloop.counter0 == 0 %}  active {% endif %} carousel-item " href="{{p.images.url}}" data-interval="50000">
+              <div class="{% if forloop.counter0 == 0 %}  active {% endif %} carousel-item" href="{{p.images.url}}" data-interval="50000">
                 
                 <img src="{{p.images.url}}" alt="product image" class="img-fluid" />  
               
@@ -260,7 +265,7 @@
 </div> 
 </div>
                                                     
-<div class="container marketing mt-1">
+<div class="container-fluid marketing mt-1">
     
   <div class="row ">
    

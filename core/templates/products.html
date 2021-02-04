@@ -30,20 +30,30 @@ padding: 1rem;
   height:250px;
 }
 .card:hover {
-
   filter: brightness(1.10) ;
 }
 
 .btn,
 .btn a{
-  border-radius: 4px;
-  background-color: #f4511e;
+ 
   border: none;
   color: #FFFFFF;
   text-align: center;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
+    -webkit-appearance: none;
+  background-color: #E95151;
+  border-radius: 4rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .btn span {
@@ -90,7 +100,7 @@ padding: 1rem;
   transition: all .5s;
   color: #fff;
   border-radius: 5px;
-  background-color: hsl(174, 100%, 29%);
+  background-color: #008B76;
 }
 .filter-panel li:hover {
     background-color: hsl(174, 100%, 35%);
@@ -102,11 +112,12 @@ padding: 1rem;
 </style>
 
 
-<main id="main" role="main">
+<main id="main"  role="main">
+  
       
       <section class="product-area">
-
-         <div class="container products">
+       
+         <div class="container-fluid products pr-sm-5 pl-sm-5">
         
           <ul class="filter-panel">
             <li data-filter="all"> Tous </li>
@@ -130,11 +141,11 @@ padding: 1rem;
               </a>
             </div>
                 <div class="card-body">
-                  <p class="card-text">{{item.title}}</p>
-                  <p class="card-text">{{item.get_product_category_display}}</p>
-                  <p class="card-text">{{item.get_inventory_display}}</p>
-                  <p class="card-text">{{item.get_color_display}}</p>
-                  <p class="card-text">{{item.get_category_display}}</p>
+                
+                  <p class="card-text text-muted">nom: {{item.title}}</p>
+                  <p class="card-text text-muted">catégorie: {{item.get_product_category_display}}</p>
+                  <p class="card-text text-muted">colour: {{item.get_color_display}}</p>
+               
                   <div class="d-flex  justify-content-between align-items-center">
                     <a  href="{{item.get_absolute_url}}" >
                       <button class="btn update-cart"  type="button" >
@@ -144,7 +155,7 @@ padding: 1rem;
                       </button>
                     </a>
                     <small class="text-muted"> 
-                      {%if item.discount_price%} {{item.discount_price}} {% else %} {{item.price}} {% endif %} 
+                       <p class="card-text">{{item.get_inventory_display}}</p>
                       
                     </small>
                   </div>
@@ -158,11 +169,12 @@ padding: 1rem;
           </div>
           </section>
      
-          <script>
+      <script>
 const options = { };
 
 const filterizr = new Filterizr('.filter-container', options);
-          </script> 
+
+      </script> 
    </main>
   
    
