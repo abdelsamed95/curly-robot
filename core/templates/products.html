@@ -3,10 +3,7 @@
 {% block content %}
 
  <style>
-  
-main {
-  padding-top:1rem;
-}
+
 
 .card {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.4);
@@ -108,15 +105,45 @@ padding: 1rem;
 .filter-panel strong {
     width: 120px;
 }
+/* Scroll top */
+.scrolltop {
+    position: fixed;
+    right: 1rem;
+    bottom: -20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .3rem;
+    background: rgba(6, 156, 84, .5);
+    border-radius: .4rem;
+    z-index: var(--z-tooltip);
+    transition: .4s;
+    visibility: hidden;
+}
 
+.scrolltop:hover {
+    background-color: var(--first-color-alt);
+    text-decoration: none;
+}
+
+.scrolltop__icon {
+    font-size: 1.8rem;
+    color: var(--body-color);
+}
+
+/* Show scrolltop */
+.show-scroll {
+    visibility: visible;
+    bottom: 1.5rem;
+}
 </style>
 
+<a href="#" class="scrolltop" id="scroll-top">
+  <i class='bx bx-chevron-up scrolltop__icon'></i>
+</a>
 
-<main id="main"  role="main">
-  
-      
       <section class="product-area">
-       
+    
          <div class="container products">
         
           <ul class="filter-panel">
@@ -142,9 +169,9 @@ padding: 1rem;
             </div>
                 <div class="card-body">
                 
-                  <p class="card-text text-muted">nom: {{item.title}}</p>
-                  <p class="card-text text-muted">catégorie: {{item.get_product_category_display}}</p>
-                  <p class="card-text text-muted">colour: {{item.get_color_display}}</p>
+                  <p class="card-text text-muted pt-2 pb-2">nom: {{item.title}}</p>
+                  <p class="card-text text-muted pb-2">catégorie: {{item.get_product_category_display}}</p>
+                  <p class="card-text text-muted pb-4">colour: {{item.get_color_display}}</p>
                
                   <div class="d-flex  justify-content-between align-items-center">
                     <a  href="{{item.get_absolute_url}}" >
@@ -174,7 +201,13 @@ const options = { };
 
 const filterizr = new Filterizr('.filter-container', options);
 
+function scrollTop(){
+    const scrollTop = document.getElementById('scroll-top');
+    if(this.scrollY >= 1960) scrollTop.classList.add('show-scroll'); else scrollTop.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollTop)
       </script> 
+
    </main>
   
    

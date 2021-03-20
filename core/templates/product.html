@@ -1,11 +1,9 @@
 {% extends "index.html" %} {% load static %} {% block content %}
 
-<link rel="stylesheet" href="{% static 'magnific-popup.css' %}"> 
+<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}"> 
+<script src="{% static 'js/jquery.magnific-popup.js' %}"></script> 
 <style>
 
-  main {
-     padding-top:1rem;
-  }
 
   img {
     pointer-events: none;
@@ -119,12 +117,12 @@
   margin: 1rem 0;
   font-weight: 600; 
   text-transform: uppercase;
-  font-size: 0.8125rem;
+  font-size: var(--small-font-size);
   letter-spacing: 1px;
 }
 
 .informations p {
-  font-size: 0.9rem;
+  font-size: var(--normal-font-size);
   margin: 1rem 0;
   line-height: 1.5;
 }
@@ -209,8 +207,6 @@
 }
 </style>
 
-<main id="main" role="main">
-  
 
   <div class="container">
     <nav aria-label="breadcrumb">
@@ -286,9 +282,9 @@
   </div>
 </div>
 
-<script src="{% static 'jquery.magnific-popup.js' %}"></script> 
 
-<script>
+
+<script type="text/javascript">
 $('.carousel-inner').magnificPopup({
   delegate: 'div',
   type: 'image',
@@ -297,9 +293,5 @@ $('.carousel-inner').magnificPopup({
     enabled: true,}
 });
 </script>
-
-</main>
-
-
 
 {% endblock content %}

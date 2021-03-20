@@ -66,7 +66,7 @@ padding: 1vw;}
     margin-bottom: 10px;
   }
   .carousel-item {
-  height:35vh;
+  height:40vh;
 }
 .carousel-item > img {
 
@@ -76,40 +76,288 @@ padding: 1vw;}
 
 }
 
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
+/* Scroll top */
+.scrolltop {
+    position: fixed;
+    right: 1rem;
+    bottom: -20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .3rem;
+    background: rgba(6, 156, 84, .5);
+    border-radius: .4rem;
+    z-index: var(--z-tooltip);
+    transition: .4s;
+    visibility: hidden;
+}
+
+.scrolltop:hover {
+    background-color: var(--first-color-alt);
+    text-decoration: none;
+}
+
+.scrolltop__icon {
+    font-size: 1.8rem;
+    color: var(--body-color);
+}
+
+/* Show scrolltop */
+.show-scroll {
+    visibility: visible;
+    bottom: 1.5rem;
+}
+
+/*========== HOME ==========*/
+.home__container {
+  height: calc(100vh - var(--header-height));
+  align-content: center;
+}
+
+.home__title {
+  font-size: var(--biggest-font-size);
+  color: var(--first-color);
+  margin-bottom: var(--mb-1);
+}
+
+.home__subtitle {
+  font-size: var(--h1-font-size);
+  color: var(--title-color);
+  margin-bottom: var(--mb-4);
+}
+
+.home__img {
+  width: 300px;
+  justify-self: center;
+}
+
+/*========== BUTTONS ==========*/
+.button {
+  display: inline-block;
+  background-color: var(--first-color);
+  color: #FFF;
+  padding: .75rem 1rem;
+  border-radius: .5rem;
+  transition: .3s;
+}
+
+.button:hover {
+  text-decoration: none;
+  background-color: var(--first-color-alt);
+  color: var(--text-color-light);
+  
+}
+
+/*========== ABOUT ==========*/
+.about__data {
   text-align: center;
-  background-color: rgba(245, 145, 69, 0.8);
-  color: white;
 }
 
-.featurette-divider {
-  margin: 5rem 0; 
+.about__description {
+  margin-bottom: var(--mb-3);
 }
 
-/* Thin out the marketing headings */
-.featurette-heading {
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -.05rem;
+.about__img {
+  width: 280px;
+  border-radius: .5rem;
+  justify-self: center;
 }
-@media (min-width: 40em) {
-  .featurette-heading {
-    font-size: 50px;
+
+/*========== SERVICES ==========*/
+.services__container {
+  row-gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.services__content {
+  text-align: center;
+}
+
+.services__img {
+  width: 64px;
+  height: 64px;
+  fill: var(--first-color);
+  margin-bottom: var(--mb-2);
+}
+
+.services__title {
+  font-size: var(--h3-font-size);
+  color: var(--title-color);
+  margin-bottom: var(--mb-1);
+}
+
+.services__description {
+  padding: 0 1.5rem;
+}
+
+/*========== MENU ==========*/
+.menu__container {
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+}
+
+.menu__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--container-color);
+  border-radius: .5rem;
+  box-shadow: 0 2px 4px rgba(3, 74, 40, .15);
+  padding: .75rem;
+}
+
+.menu__img {
+  width: 100px;
+  align-self: center;
+  margin-bottom: var(--mb-2);
+}
+
+.menu__name,
+.menu__preci {
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+}
+
+.menu__name {
+  font-size: var(--normal-font-size);
+}
+
+.menu__detail,
+.menu__preci {
+  font-size: var(--small-font-size);
+}
+
+.menu__detail {
+  margin-bottom: var(--mb-1);
+}
+
+.menu__button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  padding: .625rem .813rem;
+  border-radius: .5rem 0 .5rem 0;
+}
+
+/*========== APP ==========*/
+.app__data {
+  text-align: center;
+}
+
+.app__description {
+  margin-bottom: var(--mb-5);
+}
+
+.app__stores {
+  margin-bottom: var(--mb-4);
+}
+
+.app__store {
+  width: 120px;
+  margin: 0 var(--mb-1);
+}
+
+.app__img {
+  width: 230px;
+  justify-self: center;
+}
+
+/*========== CONTACT ==========*/
+.contact__container {
+  text-align: center;
+}
+
+.contact__description {
+  margin-bottom: var(--mb-3);
+}
+
+
+
+/*========== MEDIA QUERIES ==========*/
+@media screen and (min-width: 576px) {
+
+  .home__container,
+  .about__container,
+  .app__container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .about__data,
+  .about__initial,
+  .app__data,
+  .app__initial,
+  .contact__container,
+  .contact__initial {
+    text-align: initial;
+  }
+
+  .about__img,
+  .app__img {
+    width: 380px;
+    order: -1;
+  }
+
+  .contact__container {
+    grid-template-columns: 1.75fr 1fr;
+    align-items: center;
+  }
+
+  .contact__button {
+    justify-self: center;
   }
 }
 
-@media (min-width: 62em) {
-  .featurette-heading {
-    margin-top: 7rem;
+@media screen and (min-width: 768px) {
+
+
+  .home__container {
+    height: 100vh;
+    justify-items: center;
+  }
+
+  .services__container,
+  .menu__container {
+    margin-top: var(--mb-6);
+  }
+
+  .menu__container {
+    grid-template-columns: repeat(3, 210px);
+    column-gap: 4rem;
+  }
+
+  .menu__content {
+    padding: 1.5rem;
+  }
+
+  .menu__img {
+    width: 130px;
+  }
+
+  .app__store {
+    margin: 0 var(--mb-1) 0 0;
   }
 }
+
+@media screen and (min-width: 960px) {
+
+
+  .home__img {
+    width: 500px;
+  }
+
+  .about__container,
+  .app__container {
+    column-gap: 7rem;
+  }
+}
+
 
 
 </style>
 <main id= "main" role="main">
-
+<!--
 <div id="Carousel"  class="carousel slide carousel-fade" data-touch="true" data-ride="carousel">
   <ol class="carousel-indicators">
   {% for item in home %}
@@ -146,86 +394,246 @@ padding: 1vw;}
   
   </a>
 </div>
-
 <hr>
-<div class="row">
-  <div class="column">
-    <div class="card">
-      <p><i class="fa fa-handshake fa-2x"></i></p> <!-- to svg -->
-      <h3>11+</h3>
-      <p>Partenaires</p>
-    </div>
-  </div>
+-->
 
-  <div class="column">
-    <div class="card">
-      <p><i class="fa fa-check fa-2x"></i></p> <!-- to svg -->
-      <h3>55+</h3>
-      <p>Projets</p>
-    </div>
-  </div>
 
-  <div class="column">
-    <div class="card">
-      <p><i class="fa fa-smile fa-2x"></i></p> <!-- to svg -->
-      <h3>100+</h3>
-      <p>Happy Clients</p>
-    </div>
-  </div>
 
-  <div class="column">
-    <div class="card">
-      <p><i class="fa fa-coffee fa-2x"></i></p>  <!-- to svg -->
-      <h3>100+</h3>
-      <p>Meetings</p>
-    </div>
-  </div>
-</div>
- <hr class="featurette-divider">
+<a href="#" class="scrolltop" id="scroll-top">
+  <i class='bx bx-chevron-up scrolltop__icon'></i>
+</a>
 
-    <div class="row featurette">
-      <div class="col-md-7">
-        <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+
+
+  <!--========== HOME ==========-->
+  <section class="home" id="home">
+      <div class="home__container bd-container bd-grid">
+          <div class="home__data">
+              <h1 class="home__title">Mobilia pro</h1>
+              <h2 class="home__subtitle"> Apporter de la joie à<br> chaque foyer</h2>
+              <a href={% url 'core:products' %} class="button"> Découvrez nos meubles</a>
+          </div>
+
+          <img src="static/img/mobiliapro.png" alt="" class="home__img">
       </div>
-      <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+  </section>
+    <!--========== MENU ==========-->
+    <section class="menu section bd-container" id="menu">
+      <span class="section-subtitle">Special</span>
+      <h2 class="section-title">Nouveaux produits</h2>
+
+      <div class="menu__container bd-grid">
+          <div class="menu__content">
+              <img src="static/img/mobiliapro.png" alt="" class="menu__img">
+              <h3 class="menu__name">nom produit 1</h3>
+              <span class="menu__detail">detail</span>
+              <span class="menu__preci">2200 DA</span>
+              <a href="#" class="button menu__button"><i class='bx bx-search-alt' ></i></a>
+          </div>
+
+          <div class="menu__content">
+              <img src="static/img/mobiliapro.png" alt="" class="menu__img">
+              <h3 class="menu__name">nom produit 2</h3>
+              <span class="menu__detail">detail</span>
+              <span class="menu__preci">1200 DA</span>
+              <a href="#" class="button menu__button"><i class='bx bx-search-alt' ></i></a>
+          </div>
+          
+          <div class="menu__content">
+              <img src="static/img/mobiliapro.png" alt="" class="menu__img">
+              <h3 class="menu__name">nom produit 3</h3>
+              <span class="menu__detail">Detail</span>
+              <span class="menu__preci">950 DA</span>
+              <a href="#" class="button menu__button"><i class='bx bx-search-alt' ></i></a>
+          </div>
       </div>
+  </section>
+
+
+  <!--========== SERVICES ==========-->
+  <section class="services section bd-container" id="services">
+    <span class="section-subtitle">L'offre</span>
+    <h2 class="section-title">Notre incroyable offre </h2>
+
+    <div class="services__container  bd-grid">
+        <div class="services__content">
+          <svg version="1.1" class="services__img" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+
+<path style="fill:#FF6464;" d="M423.231,471.606l-77.852-226.499H166.621L88.769,471.606c-2.292,6.668,3.773,13.199,10.592,11.407
+	l45.614-11.985l28.606,37.495c4.277,5.606,13.075,4.183,15.367-2.485L256,310.959l67.052,195.08
+	c2.292,6.667,11.09,8.091,15.367,2.485l28.606-37.495l45.614,11.985C419.458,484.804,425.523,478.274,423.231,471.606z"/>
+<path style="fill:#D2555A;" d="M374.645,330.253l-29.266-85.146H166.621l-29.266,85.146c27.811,21.5,61.586,35.651,98.451,39.46
+	L256,310.959l20.194,58.753C313.059,365.903,346.834,351.752,374.645,330.253z"/>
+<circle style="fill:#FFC36E;" cx="256" cy="176.552" r="176.552"/>
+<path style="fill:#FFD782;" d="M256,0C158.493,0,79.448,79.044,79.448,176.552c0,97.506,79.044,176.552,176.552,176.552
+	s176.552-79.046,176.552-176.552C432.552,79.044,353.507,0,256,0z M256,326.621c-82.881,0-150.069-67.188-150.069-150.069
+	S173.119,26.483,256,26.483s150.069,67.188,150.069,150.069S338.881,326.621,256,326.621z"/>
+<path style="fill:#EBB45F;" d="M256,26.483c-82.881,0-150.069,67.188-150.069,150.069S173.119,326.621,256,326.621
+	s150.069-67.188,150.069-150.069S338.881,26.483,256,26.483z M256,308.966c-73.13,0-132.414-59.284-132.414-132.414
+	S182.87,44.138,256,44.138s132.414,59.284,132.414,132.414S329.13,308.966,256,308.966z"/>
+<path style="fill:#FFD782;" d="M256.605,231.962L213.07,254.85c-7.207,3.789-15.629-2.33-14.253-10.356l8.314-48.477l-35.221-34.332
+	c-5.831-5.683-2.613-15.585,5.444-16.756l48.673-7.073l21.768-44.106c3.604-7.302,14.015-7.302,17.618,0l21.768,44.106l48.673,7.073
+	c8.057,1.171,11.275,11.073,5.444,16.756l-35.221,34.332l8.314,48.477c1.376,8.025-7.047,14.144-14.253,10.356L256.605,231.962z"/>
+<path style="fill:#EBB45F;" d="M256.605,88.276c3.503,0,7.007,1.825,8.809,5.476l21.768,44.106l48.673,7.073
+	c8.057,1.171,11.275,11.073,5.444,16.756l-35.22,34.332l8.314,48.477c1.089,6.349-3.957,11.506-9.681,11.506
+	c-1.511,0-3.069-0.359-4.573-1.15l-43.534-22.888l-43.534,22.888c-1.504,0.791-3.063,1.15-4.573,1.15
+	c-5.725,0-10.77-5.156-9.681-11.506l8.314-48.477l-35.22-34.332c-5.831-5.683-2.613-15.585,5.444-16.756l48.673-7.073l21.768-44.106
+	C249.597,90.101,253.101,88.276,256.605,88.276 M256.605,70.621c-10.536,0-19.978,5.869-24.641,15.318l-17.66,35.783l-39.488,5.738
+	c-10.426,1.515-18.926,8.681-22.183,18.701c-3.256,10.02-0.591,20.814,6.954,28.169l28.574,27.852l-6.745,39.329
+	c-1.374,8.008,0.828,16.143,6.037,22.324c5.262,6.242,12.934,9.822,21.045,9.822c4.412,0,8.834-1.099,12.789-3.178l35.319-18.569
+	l35.319,18.569c3.955,2.079,8.377,3.178,12.789,3.178c8.111,0,15.782-3.581,21.045-9.823c5.209-6.179,7.411-14.316,6.037-22.323
+	l-6.745-39.329l28.574-27.852c7.545-7.354,10.209-18.148,6.954-28.169c-3.256-10.02-11.756-17.186-22.183-18.701l-39.488-5.738
+	l-17.66-35.783C276.583,76.49,267.14,70.621,256.605,70.621L256.605,70.621z"/>
+<path style="fill:#FFE6A0;" d="M335.854,144.93l-48.673-7.073l-21.768-44.106c-3.604-7.302-14.015-7.302-17.618,0l-13.976,28.32
+	l77.308,131.423c2.421-2.108,3.896-5.325,3.266-9l-8.314-48.477l35.22-34.332C347.128,156.002,343.912,146.101,335.854,144.93z"/>
+<g>
+	<path style="fill:#FFFFFF;" d="M361.07,84.531c-15.236-3.474-27.231-15.468-30.705-30.706c-0.262-1.148-1.781-1.148-2.042,0
+		c-3.474,15.236-15.468,27.231-30.705,30.706c-1.148,0.262-1.148,1.781,0,2.042c15.236,3.474,27.231,15.467,30.705,30.705
+		c0.262,1.148,1.781,1.148,2.042,0c3.474-15.238,15.468-27.231,30.705-30.705C362.218,86.312,362.218,84.792,361.07,84.531z"/>
+	<path style="fill:#FFFFFF;" d="M308.267,134.438c-9.274-2.402-16.577-9.705-18.979-18.979c-0.242-0.931-1.447-0.931-1.688,0
+		c-2.402,9.274-9.705,16.577-18.979,18.979c-0.931,0.242-0.931,1.447,0,1.688c9.274,2.402,16.577,9.704,18.979,18.979
+		c0.242,0.931,1.447,0.931,1.688,0c2.402-9.276,9.705-16.577,18.979-18.979C309.198,135.884,309.198,134.678,308.267,134.438z"/>
+</g>
+
+            </svg>
+             
+           
+            <h3 class="services__title">Excellent meuble</h3>
+            <p class="services__description">Nous offrons à nos clients des produits d'excellente qualité depuis de nombreuses années.</p>
+        </div>
+
+        <div class="services__content">
+             <svg version="1.1" class="services__img" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+           <polygon style="fill:#FFD782;" points="256,0 286.073,27.571 322.258,8.723 344.17,43.138 384,34.297 396.258,73.212 437.02,74.98 
+             438.788,115.742 477.703,128 468.862,167.83 503.277,189.742 484.429,225.927 512,256 484.429,286.073 503.277,322.258 
+             468.862,344.17 477.703,384 438.788,396.258 437.02,437.02 396.258,438.788 384,477.703 344.17,468.862 322.258,503.277 
+             286.073,484.429 256,512 225.927,484.429 189.742,503.277 167.83,468.862 128,477.703 115.742,438.788 74.98,437.02 73.212,396.258 
+             34.297,384 43.138,344.17 8.723,322.258 27.571,286.073 0,256 27.571,225.927 8.723,189.742 43.138,167.83 34.297,128 
+             73.212,115.742 74.98,74.98 115.742,73.212 128,34.297 167.83,43.138 189.742,8.723 225.927,27.571 "/>
+           <path style="fill:#FFFFFF;" d="M397.067,222.298c-1.39-11.24-11.719-19.264-23.043-19.264h-70.936
+             c20.551-16.637,34.504-38.956,36.522-57.311c1.496-13.61-7.915-26.536-21.605-26.663c-12.277-0.114-22.271,9.705-22.271,21.955
+             c0,7.948-17.25,31.534-49.579,42.029c-5.183,1.683-9.7,4.883-13.431,8.855c-9.583,10.205-30.554,28.789-56.171,28.789v132.414
+             h171.336c10.136,0,19.567-6.485,22.119-16.295c2.059-7.915-0.278-15.233-4.929-20.431c8.448-3.095,14.509-11.134,14.509-20.653
+             c0-5.652-2.187-10.752-5.681-14.656c8.447-3.096,14.508-11.135,14.508-20.654c0-5.652-2.187-10.752-5.681-14.656
+             C391.999,242.361,398.393,233.02,397.067,222.298z"/>
+           <path style="fill:#FFC36E;" d="M185.379,370.759h-52.966c-4.875,0-8.828-3.953-8.828-8.828V211.862c0-4.875,3.953-8.828,8.828-8.828
+             h52.966c4.875,0,8.828,3.953,8.828,8.828v150.069C194.207,366.806,190.254,370.759,185.379,370.759z"/>
+           <circle style="fill:#EFF2FA;" cx="158.897" cy="335.448" r="17.655"/>
+          
+           </svg>
+              
+            <h3 class="services__title">Style et prix</h3>
+            <p class="services__description">Nous offrons à nos clients des modeles au gout de nos jours, avec le meilleure rapport qualité/prix au pays.</p>
+        </div>
+
+        <div class="services__content">
+          <svg version="1.1" class="services__img" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+       <path style="fill:#A2A9B0;" d="M450.425,244.625l-54.851-67.585c-11.693-14.408-29.043-22.672-47.599-22.672h-42.08
+         c-8.667,0-15.694,7.027-15.694,15.694v84.453c0,8.667,7.027,15.694,15.694,15.694h132.343c6.053,0,11.567-3.481,14.169-8.946
+         C455.011,255.799,454.239,249.325,450.425,244.625z"/>
+       <path style="fill:#CFCDCF;" d="M349.976,154.367h-44.081c-8.667,0-15.694,7.027-15.694,15.694v84.453
+         c0,8.667,7.027,15.694,15.694,15.694h44.26L349.976,154.367z"/>
+       <path style="fill:#555559;" d="M350.023,208.941c-8.667,0-15.694,7.027-15.694,15.694v19.944c0,8.667,7.027,15.694,15.694,15.694
+         s15.694-7.027,15.694-15.694v-19.944C365.718,215.968,358.691,208.941,350.023,208.941z"/>
+       <path style="fill:#AEADB3;" d="M350.023,208.941c-8.667,0-15.694,7.027-15.694,15.694v19.944c0,8.667,7.027,15.694,15.694,15.694
+         V208.941z"/>
+       <path style="fill:#CFCDCF;" d="M66.091,202.657H15.694C7.027,202.657,0,195.63,0,186.962s7.027-15.694,15.694-15.694h50.397
+         c8.667,0,15.694,7.027,15.694,15.694S74.759,202.657,66.091,202.657z"/>
+       <path style="fill:#FF9900;" d="M467.818,238.821H305.895c-8.667,0-15.694,7.027-15.694,15.694v84.453
+         c0,8.667,7.027,15.694,15.694,15.694h190.411c8.667,0,15.694-7.027,15.694-15.694v-55.965
+         C512,258.641,492.18,238.821,467.818,238.821z"/>
+       <path style="fill:#FAD52A;" d="M282.044,117.651H85.212c-8.667,0-15.694,7.027-15.694,15.694v210.59
+         c0,8.667,7.027,15.694,15.694,15.694h220.682c8.667,0,15.694-7.027,15.694-15.694v-186.74
+         C321.589,135.391,303.85,117.651,282.044,117.651z"/>
+       <path style="fill:#FFEA5E;" d="M195.554,117.651H85.212c-8.667,0-15.694,7.027-15.694,15.694v210.59
+         c0,8.667,7.027,15.694,15.694,15.694h110.341L195.554,117.651z"/>
+       <path style="fill:#555559;" d="M422.479,394.349c-27.798,0-50.412-22.616-50.412-50.414c0-27.798,22.615-50.412,50.412-50.412
+         s50.413,22.615,50.413,50.412C472.893,371.734,450.277,394.349,422.479,394.349z"/>
+       <path style="fill:#AEADB3;" d="M422.479,394.349c-27.798,0-50.412-22.616-50.412-50.414c0-27.798,22.615-50.412,50.412-50.412
+         V394.349z"/>
+       <circle style="fill:#FF9900;" cx="422.482" cy="343.937" r="19.022"/>
+       <path style="fill:#FAD52A;" d="M422.48,324.912c-10.507,0-19.025,8.518-19.025,19.025c0,10.507,8.518,19.025,19.025,19.025V324.912z
+         "/>
+       <path style="fill:#B1B0BC;" d="M153.809,259.811H37.075c-8.667,0-15.694-7.027-15.694-15.694s7.027-15.694,15.694-15.694H153.81
+         c8.667,0,15.694,7.027,15.694,15.694S162.478,259.811,153.809,259.811z"/>
+       <path style="fill:#CFCDCF;" d="M95.442,259.811H37.075c-8.667,0-15.694-7.027-15.694-15.694s7.027-15.694,15.694-15.694h58.367
+         v31.389H95.442z"/>
+       <path style="fill:#555559;" d="M173.965,394.349c-27.798,0-50.412-22.616-50.412-50.414c0-27.798,22.615-50.412,50.412-50.412
+         s50.413,22.615,50.413,50.412C224.378,371.734,201.763,394.349,173.965,394.349z"/>
+       <path style="fill:#AEADB3;" d="M173.965,394.349c-27.798,0-50.412-22.616-50.412-50.414c0-27.798,22.615-50.412,50.412-50.412
+         V394.349z"/>
+       <circle style="fill:#FF9900;" cx="173.967" cy="343.937" r="19.022"/>
+       <path style="fill:#FAD52A;" d="M173.965,324.912c-10.507,0-19.025,8.518-19.025,19.025c0,10.507,8.518,19.025,19.025,19.025V324.912
+         z"/>
+    
+      
+       </svg>
+       
+       
+            <h3 class="services__title">La Livraison</h3>
+            <p class="services__description">Nous offrons à nos clients des services de livraison a domicile des produits achetés</p>
+        </div>
     </div>
+</section>
+  
+  <!--========== ABOUT ==========-->
+  <section class="about section bd-container" id="about">
+      <div class="about__container  bd-grid">
+          <div class="about__data">
+              <span class="section-subtitle about__initial">à propos de nous</span>
+              <h2 class="section-title about__initial">nous fabriquons le meillieur <br> meuble de maison</h2>
+              <p class="about__description">nous fabriquons le meillieur meuble en algerie, avec un excellent service client, la Meillieur qualité et le meillieur prix, rend nous une visite.</p>
+              
+          </div>
 
-    <hr class="featurette-divider">
+          <img src="static/img/mobiliapro.png" alt="" class="about__img">
+      </div>
+  </section>
 
-    <div class="row featurette">
-      <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-      </div>
-      <div class="col-md-5 order-md-1">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500"  preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-      </div>
-    </div>
 
-    <hr class="featurette-divider">
 
-    <div class="row featurette">
-      <div class="col-md-7">
-        <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-      </div>
-      <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500"  preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-      </div>
-    </div>
 
-    <hr class="featurette-divider">
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-      <div class="col-md-5 p-lg-5 mx-auto my-5">
-        <h1 ">Punny headline</h1>
-        <p >And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple's marketing pages.</p>
-        <a class="btn btn-outline-secondary" href="#">Coming soon</a>
-      </div>
-    </div>
-   
+
+<script>
+
+
+
+
+/*==================== SHOW SCROLL TOP ====================*/ 
+
+function scrollTop(){
+    const scrollTop = document.getElementById('scroll-top');
+    if(this.scrollY >= 560) scrollTop.classList.add('show-scroll'); else scrollTop.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollTop)
+
+
+/*==================== SCROLL REVEAL ANIMATION ====================*/
+
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '30px',
+    duration: 2000,
+    reset: true
+});
+
+sr.reveal(`.home__data, .home__img,
+            .about__data, .about__img,
+            .services__content, .menu__content,
+            .app__data, .app__img,
+            .contact__data, .contact__button,
+            .footer__content`, {
+    interval: 100
+})
+
+
+
+
+</script>
+
 </main>
 
 
