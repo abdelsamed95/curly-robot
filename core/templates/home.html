@@ -110,8 +110,10 @@ padding: 1vw;}
 
 /*========== HOME ==========*/
 .home__container {
-  height: calc(100vh - var(--header-height));
+  height: calc(90vh - var(--header-height));
   align-content: center;
+  row-gap: 5rem;
+ 
 }
 
 .home__title {
@@ -130,7 +132,9 @@ padding: 1vw;}
   width: 300px;
   justify-self: center;
 }
-
+.home__data{
+  text-align: center;
+}
 /*========== BUTTONS ==========*/
 .button {
   display: inline-block;
@@ -315,6 +319,7 @@ padding: 1vw;}
   .home__container {
     height: 100vh;
     justify-items: center;
+  
   }
 
   .services__container,
@@ -356,7 +361,7 @@ padding: 1vw;}
 
 
 </style>
-<main id= "main" role="main">
+
 <!--
 <div id="Carousel"  class="carousel slide carousel-fade" data-touch="true" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -409,12 +414,13 @@ padding: 1vw;}
   <section class="home" id="home">
       <div class="home__container bd-container bd-grid">
           <div class="home__data">
-              <h1 class="home__title">Mobilia pro</h1>
+              <h1 class="home__title">mobilia pro</h1>
               <h2 class="home__subtitle"> Apporter de la joie à<br> chaque foyer</h2>
               <a href={% url 'core:products' %} class="button"> Découvrez nos meubles</a>
           </div>
            
           <img src="static/img/mobiliapro.png" alt="" class="home__img">
+          
       </div>
       
   </section>
@@ -635,7 +641,7 @@ sr.reveal(`.home__data, .home__img,
 
 </script>
 
-</main>
+
 
 
 {% endblock content %}
